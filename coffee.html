@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            border: 1px solid black;
+            margin: 0 auto;
+        }
+
+        th, td {
+            border: 1px solid black;
+            /* padding: 10px; */
+            text-align: center;
+        }
+
+        .name-input, .description-input {
+            width: 100%;
+            height: 100%;
+            border: 1px transparent solid;
+            padding: 10px;
+        }
+
+        .name-row, .description {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            border: none;
+        }
+
+        .btn {
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .rate{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .rate-item {
+            width: 10px;
+            height: 10px;
+            border: 1px solid black;
+            margin-right: 10px;
+        }
+
+        .rate-item:last-child {
+            margin-right: 0;
+        }
+
+        .rate-item:hover {
+            background-color: green;
+        }
+
+        .rating-area {
+            overflow: hidden;
+            /* width: 265px; */
+            margin: 0 auto;
+            display: flex;
+            flex-direction: row-reverse;
+        }
+        .rating-area:not(:checked) > input {
+            display: none;
+        }
+        .rating-area:not(:checked) > label {
+            float: right;
+            width: 42px;
+            padding: 0;
+            cursor: pointer;
+            font-size: 32px;
+            line-height: 32px;
+            color: lightgrey;
+            text-shadow: 1px 1px #bbb;
+        }
+        .rating-area:not(:checked) > label:before {
+            content: '★';
+        }
+        .rating-area > input:checked ~ label {
+            color: gold;
+            text-shadow: 1px 1px #c60;
+        }
+        .rating-area:not(:checked) > label:hover,
+        .rating-area:not(:checked) > label:hover ~ label {
+            color: gold;
+        }
+        .rating-area > input:checked + label:hover,
+        .rating-area > input:checked + label:hover ~ label,
+        .rating-area > input:checked ~ label:hover,
+        .rating-area > input:checked ~ label:hover ~ label,
+        .rating-area > label:hover ~ input:checked ~ label {
+            color: gold;
+            text-shadow: 1px 1px goldenrod;
+        }
+        .rate-area > label:active {
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <h1>Date</h1>
+    <table>
+        <tr>
+            <th>Название</th>
+            <th>Оценка без молока </th>
+            <th>Оценка  с молоком</th>
+            <th>В наличиии</th>
+            <th>Доп описание</th>
+        </tr>
+        <tr>
+            <td class='name-row'><input type='text' class='name-input'></td>
+            <td class='no-milk-rate'>
+                <div class="rating-area">
+                    <input type="radio" id="star-10" name="rating" value="10" class='no-milk-rating'>
+                    <label for="star-10" title="Оценка «10»"></label>	
+                    <input type="radio" id="star-9" name="rating" value="9" class='no-milk-rating'>
+                    <label for="star-9" title="Оценка «9»"></label>    
+                    <input type="radio" id="star-8" name="rating" value="8" class='no-milk-rating'>
+                    <label for="star-8" title="Оценка «8»"></label>  
+                    <input type="radio" id="star-7" name="rating" value="7" class='no-milk-rating'>
+                    <label for="star-7" title="Оценка «7»"></label>    
+                    <input type="radio" id="star-6" name="rating" value="6" class='no-milk-rating'>
+                    <label for="star-6" title="Оценка «6»"></label>
+                    <input type="radio" id="star-5" name="rating" value="5" class='no-milk-rating'>
+                    <label for="star-5" title="Оценка «5»"></label>	
+                    <input type="radio" id="star-4" name="rating" value="4" class='no-milk-rating'>
+                    <label for="star-4" title="Оценка «4»"></label>    
+                    <input type="radio" id="star-3" name="rating" value="3" class='no-milk-rating'>
+                    <label for="star-3" title="Оценка «3»"></label>  
+                    <input type="radio" id="star-2" name="rating" value="2" class='no-milk-rating'>
+                    <label for="star-2" title="Оценка «2»"></label>    
+                    <input type="radio" id="star-1" name="rating" value="1" class='no-milk-rating'>
+                    <label for="star-1" title="Оценка «1»"></label>
+                </div>
+            </td>
+            <td class='with-milk-rate'>
+                <div class='rate'>
+                    <div class='rate-item'></div>
+                    <div class='rate-item'></div>
+                    <div class='rate-item'></div>
+                    <div class='rate-item'></div>
+                    <div class='rate-item'></div>
+                    <div class='rate-item'></div>
+                    <div class='rate-item'></div>
+                    <div class='rate-item'></div>
+                    <div class='rate-item'></div>
+                    <div class='rate-item'></div>
+                </div>
+            </td>
+            <td class='have-now'>
+                <label>Да
+                    <input type='checkbox' class='have-now-radio' name='availability' value='yes'>
+                </label>
+            </td>
+            <td class='description'><input type='text' class='description-input'></td>
+        </tr>
+        <tr>
+            <td>MEXICO SHG ALTURA CHIAPAS</td>
+            <td>MYANMAR, GA NAING YAR CATURAI</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>INDIA MONSOONED MALABAR</td>
+            <td>EL SALVADOR, SANTA ROSA PACAMARA</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>KENYA KIRINYAGA BARAGWI</td>
+            <td>COLOMBIA EL JARDIN, PINK BOURBON</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>PANAMA CATURRA</td>
+            <td></td>
+            <td>PANAMA CATURRA</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>EL SALVADOR, LA ESPERANZA PACAS</td>
+            <td></td>
+            <td>EL SALVADOR, LA ESPERANZA PACAS</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Эфиопия, Вкусвилл</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Бразилия, Вкусвилл</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    <button class='btn add'>Add row</button>
+    <button class='btn save'>Save</button>
+</body>
+<script>
+    const date = new Date(),
+    heading = document.querySelector('h1');
+    heading.textContent = date.toLocaleDateString();
+</script>
+<script src='script.js'></script>
+</html>
